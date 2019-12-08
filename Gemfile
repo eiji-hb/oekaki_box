@@ -4,8 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.7'
 
 gem 'rails', '~> 5.2.4'
-# Use postgresql as the database for Active Record
-gem 'pg', '~> 0.20.0'
+# Use postgresql as the database for Active Recor'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -40,6 +39,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'pg', '~> 0.20.0'
+end
+group :production, :staging do
+    gem 'unicorn'
 end
 
 group :development do
