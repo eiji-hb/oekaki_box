@@ -54,7 +54,7 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
-    builder (3.2.3)
+    builder (3.2.4)
     byebug (11.0.1)
     capybara (3.29.0)
       addressable
@@ -246,7 +246,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.20.0)
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.4)
   rspec-rails
   sassc-rails
