@@ -1,0 +1,8 @@
+h1 Posts#show
+
+p name: #{@post.name}
+p description: #{@post.description}
+
+= link_to "消去する",post_path, method: :delete
+
+= link_to "編集",edit_post_path(@post)

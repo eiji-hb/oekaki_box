@@ -1,0 +1,6 @@
+h1 Posts#index
+- @posts.each do |post|
+  = link_to post_path(post)
+    | id: #{post.id}
+  p name: #{post.name}
+  p description: #{post.description}
