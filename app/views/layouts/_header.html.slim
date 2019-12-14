@@ -12,4 +12,4 @@ ul
   li
     = link_to "posts_index",posts_path
 - if user_signed_in?
-  =  current_user.email
+  p user_name: #{current_user.username}
