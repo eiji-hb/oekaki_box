@@ -11,3 +11,5 @@ ul
     = link_to "posts_new",new_post_path
   li
     = link_to "posts_index",posts_path
+- if user_signed_in?
+  =  current_user.email
