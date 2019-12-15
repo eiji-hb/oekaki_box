@@ -1,7 +1,8 @@
 h1 Posts#show
-p user_name: #{@post.user.email}
-p name: #{@post.name}
-p description: #{@post.description}
+p user_name: #{@post.user.username}
+p user_email: #{@post.user.email}
+p post_name: #{@post.name}
+p post_description: #{@post.description}
 
 = link_to "消去する",post_path, method: :delete
 
