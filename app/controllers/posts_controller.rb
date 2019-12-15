@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
   def create
     @post = Post.new(post_params.merge(user_id: current_user.id))
+    @post.image_data_uri = @post.dataURI
     if @post.save
       redirect_to post_path(@post)
     else
@@ -42,7 +43,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:name,:description,:image)
+    params.require(:post).permit(:name,:description,:image,:dataURI)
   end
 
   def correct_user
