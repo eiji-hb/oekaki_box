@@ -1,0 +1,7 @@
+h1 Users#index
+
+- @users.each do |user|
+  = link_to user_path(user)
+    | user_id : #{user.id}
+  p user_name: #{user.username}
+  p user_email: #{user.email}

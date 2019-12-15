@@ -2,6 +2,8 @@ h1 Posts#index
 - @posts.each do |post|
   = link_to post_path(post)
     | id: #{post.id}
-  p name:
-    = post.name
+  p user_id: #{post.user.id}
+  p user_name: #{post.user.username}
+  p user_email: #{post.user.email}
+  p post_name: #{post.name}
   p description: #{post.description}
