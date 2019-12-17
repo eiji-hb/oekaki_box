@@ -1,3 +1,12 @@
 .section#home
     home
         h1 絵を書いて投稿してみよう 。
+    #btn.m-10
+        - if user_signed_in?
+            = link_to new_post_path, class: 'btn btn-warning'
+                i.fas.fa-rocket.mr-2
+                | 投稿しよう
+        - else
+            = link_to new_user_registration_path, class: 'btn btn-primary'
+                | 始めてみよう！
+= render 'layouts/footer'

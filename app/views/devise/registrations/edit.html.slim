@@ -1,46 +1,51 @@
-h2
-  | Edit 
-  = resource_name.to_s.humanize
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :username
-    br
-    = f.text_field :username, autofocus: true, autocomplete: "username"
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for: 
-      = resource.unconfirmed_email
-  .field
-    = f.label :password
-    i
-      | (leave blank if you don't want to change it)
-    br
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
+.edit_section#form
+  h2
+    | プロフィールを編集する
+    / = resource_name.to_s.humanize
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .feild.form-wrapper
+      = f.label :name
       br
-      em
-        = @minimum_password_length
-        |  characters minimum
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    i
-      | (we need your current password to confirm your changes)
-    br
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-h3
-  | Cancel my account
-p
-  | Unhappy? 
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+      =f.text_field :username,autofocus: true, autocomplete: "name", class: 'form-control'
+        .field.form-wrapper
+    .field.form-wrapper
+      = f.label :email
+      br
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+        .field.form-wrapper
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      div
+        | Currently waiting confirmation for:
+        = resource.unconfirmed_email
+    .field.form-wrapper
+      = f.label :password
+      i
+        / | (leave blank if you don't want to change it)
+      br
+      = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+        .field.form-wrapper
+      / - if @minimum_password_length
+      /   br
+      /   em
+      /     = @minimum_password_length
+      /     |  characters minimum
+    .field.form-wrapper
+      = f.label :password_confirmation
+      br
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+        .field.form-wrapper
+    .field.form-wrapper
+      = f.label :current_password
+      i
+        / | (we need your current password to confirm your changes)
+      br
+      = f.password_field :current_password, autocomplete: "current-password", class: 'form-control'
+        .field.form-wrapper
+    .actions.p-3
+      = f.submit "更新する",class: 'btn btn-primary'
+  h3.p-3
+    | アカウント削除
+
+  = button_to "アカウント削除する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,class: 'btn btn-danger'
+  / = link_to "Back", :back
