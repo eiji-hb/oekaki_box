@@ -1,2 +1,15 @@
-h1 Pages#about
-p Find me in app/views/pages/about.html.slim
+.section#about
+    about
+        div.about-description
+            h2 お絵かきBOXとは絵を投稿するサービスです。
+        div.about-contents.clearfix
+            div.content
+                i.fas.fa-palette
+                p.pt-2 描画して投稿できます。
+            div.content
+                i.fas.fa-star
+                p.pt-2 気に入った描画をストックできます。
+            div.content
+                i.fas.fa-clipboard
+                p.pt-2 コメントが書けます
+    = render 'layouts/footer'

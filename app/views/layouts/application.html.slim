@@ -9,9 +9,13 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     =  render 'layouts/header'
-    p.notice
-      = notice
-    p.alert
-      = alert
+    .notice
+      - if flash.notice.present?
+        .alert.alert-success.m-0
+          = flash.notice
+    .error
+      - if flash.alert.present?
+        .alert.alert-danger.m-0
+          = flash.alert
     = yield
-    = render 'layouts/footer'
+    / = render 'layouts/footer'
