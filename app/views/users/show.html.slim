@@ -1,5 +1,6 @@
 h1 Users#show
-
+= render 'devise/shared/stats'
+= render 'users/follow_form'
 p user_id : #{@user.id}
 p user_name: #{@user.username}
 p user_email: #{@user.email}
