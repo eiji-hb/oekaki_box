@@ -88,13 +88,30 @@ nav{
 }
 
      /* sign_up sign_in edit_profile password_new_edit */
-     #form{
-        padding: 3rem;
-        text-align: center;
-        .form-wrapper{
-            .form-control{
-                margin: 0 auto;
-                width:300px;
-            }
-        }
+#form{
+padding: 3rem;
+text-align: center;
+.form-wrapper{
+    .form-control{
+        margin: 0 auto;
+        width:300px;
     }
+    }
+}
+/* follow_show*/
+#follow_show{
+    .container{
+        padding-top:30px ;
+    }
+    .user_content{
+        border-bottom: 1px dashed black;
+    }
+}
+/* canvas */
+
+.canvas_form{
+    text-align: center;
+    #canvas{
+        border: solid black;
+    }
+}
