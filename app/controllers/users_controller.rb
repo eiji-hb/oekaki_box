@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_post = @user.posts.order(created_at: :desc)
   end
   def following
     @user = User.find(params[:id])
