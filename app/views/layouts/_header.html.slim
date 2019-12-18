@@ -1,46 +1,46 @@
 nav.navbar.navbar-expand-md.navbar-dark.bg-dark
-    .container
-        -if user_signed_in?
-            a.navber-brand#logo href=posts_path
-                i.fas.fa-paint-brush
-                | お絵かきBOX
-        -else
-            a.navber-brand#logo href=root_path
-                i.fas.fa-paint-brush
-                | お絵かきBOX
-        button.navber-toggler.d-md-none.navbar-dark.bg-dark type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                span.navbar-toggler-icon
-        .collapse.navbar-collapse#navbarResponsive
-            ul.navbar-nav.ml-auto
-                - unless user_signed_in?
-                    li.nav-item.mr-4 = link_to pages_about_path, class: 'nav-link'
-                        i.fas.fa-dragon.mr-2
-                        | お絵かきBOXとは
-                    li.nav-item.mr-4 = link_to new_user_registration_path, class: 'nav-link'
-                        i.fas.fa-address-card.mr-2
-                        | 新規会員登録
-                    li.nav-item = link_to new_user_session_path, class: 'nav-link'
-                        i.fas.fa-glass-cheers.mr-2
-                        | ログイン
-                - else
-                    li.nav-item.mr-4 = link_to new_post_path, class: 'nav-link'
-                        i.fas.fa-pen.mr-2
-                        | 投稿する
-                    li.nav-item.mr-4 = link_to posts_path, class: 'nav-link'
-                        i.fas.fa-palette.mr-2
-                        | 投稿一覧
-                    li.nav-item.dropdown
-                        a.nav-link.dropdown-toggle herf="#" role="button"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                            i.fas.fa-smile.mr-2
-                            | #{current_user.username}
-                        .dropdown-menu
-                            = link_to user_path(current_user.id), class: 'dropdown-item'
-                                i.fas.fa-address-book.mr-2
-                                | プロフィール
-                            = link_to users_path, class: 'dropdown-item'
-                                i.fas.fa-address-book.mr-2
-                                | 登録ユーザー一覧
-                            .dropdown-divider
-                            = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item'
-                                i.fas.fa-wine-glass-alt.mr-2
-                                | ログアウト
+  .container
+    -if user_signed_in?
+        a.navber-brand#logo href=posts_path
+            i.fas.fa-paint-brush
+            | お絵かきBOX
+    -else
+        a.navber-brand#logo href=root_path
+            i.fas.fa-paint-brush
+            | お絵かきBOX
+    button.navber-toggler.d-md-none.navbar-dark.bg-dark type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            span.navbar-toggler-icon
+    .collapse.navbar-collapse#navbarResponsive
+        ul.navbar-nav.ml-auto
+            - unless user_signed_in?
+                li.nav-item.mr-4 = link_to pages_about_path, class: 'nav-link'
+                    i.fas.fa-dragon.mr-2
+                    | お絵かきBOXとは
+                li.nav-item.mr-4 = link_to new_user_registration_path, class: 'nav-link'
+                    i.fas.fa-address-card.mr-2
+                    | 新規会員登録
+                li.nav-item = link_to new_user_session_path, class: 'nav-link'
+                    i.fas.fa-glass-cheers.mr-2
+                    | ログイン
+            - else
+                li.nav-item.mr-4 = link_to new_post_path, class: 'nav-link'
+                    i.fas.fa-pen.mr-2
+                    | 投稿する
+                li.nav-item.mr-4 = link_to posts_path, class: 'nav-link'
+                    i.fas.fa-palette.mr-2
+                    | 投稿一覧
+                li.nav-item.dropdown
+                    a.nav-link.dropdown-toggle herf="#" role="button"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        i.fas.fa-smile.mr-2
+                        | #{current_user.username}
+                    .dropdown-menu
+                        = link_to user_path(current_user.id), class: 'dropdown-item'
+                            i.fas.fa-address-book.mr-2
+                            | プロフィール
+                        = link_to users_path, class: 'dropdown-item'
+                            i.fas.fa-address-book.mr-2
+                            | 登録ユーザー一覧
+                        .dropdown-divider
+                        = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item'
+                            i.fas.fa-wine-glass-alt.mr-2
+                            | ログアウト
