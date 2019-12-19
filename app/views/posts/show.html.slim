@@ -1,9 +1,17 @@
-h1 Posts#show
-p user_name: #{@post.user.username}
-p user_email: #{@post.user.email}
-p post_name: #{@post.name}
-p post_description: #{@post.description}
-= image_tag  @post.image[:small].url
-= link_to "消去する",post_path, method: :delete
-
-= link_to "編集",edit_post_path(@post)
+#show_post
+    .container
+        .row
+            .col-md-8
+                .post-container.m-5
+                    = image_tag  @post.image[:small].url
+                    p name: #{@post.name}
+                    p description: #{@post.description}
+                    - if current_user.id == @post.user_id
+                        / = link_to "編集",edit_post_path(@post)
+                        = button_to "消去する",post_path, method: :delete
+                    / = render "likes/like"
+            .col-md-4
+                .post-container.m-5
+                    = link_to user_path(@post.user)
+                      #username
+                        = @post.user.username

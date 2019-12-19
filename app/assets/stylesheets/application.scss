@@ -87,7 +87,7 @@ nav{
     }
 }
 
-     /* sign_up sign_in edit_profile password_new_edit */
+ /* sign_up sign_in edit_profile password_new_edit */
 #form{
 padding: 3rem;
 text-align: center;
@@ -110,8 +110,33 @@ text-align: center;
 /* canvas */
 
 .canvas_form{
+  text-align: center;
+  #canvas{
+    border: solid black;
+  }
+  h1{
     text-align: center;
-    #canvas{
-        border: solid black;
-    }
+  }
+}
+/*show_post*/
+#show_post{
+  background-color:#f6f6f6;
+  .post-container{
+    text-align: center;
+  }
+  .post-container{
+    background-color: white;
+    margin: 30px 0;
+  }
+  img{
+    border: 1px solid black;
+  }
+}
+/*index_post*/
+#index_post{
+  text-align: center;
+  background-color:#f6f6f6;
+  img{
+      border:1px solid black;
+  }
 }

@@ -8,13 +8,14 @@ class PostsController < ApplicationController
     @post = Post.new(post_params.merge(user_id: current_user.id))
     @post.image_data_uri = @post.dataURI
     if @post.save
-      redirect_to post_path(@post)
+      redirect_to post_path(@post),notice: "成功"
+
     else
       render :new
     end
   end
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def show
@@ -23,19 +24,23 @@ class PostsController < ApplicationController
 
 
   def edit
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
-    if @post.update_attributes(post_params)
+    @post = current_user.posts.find(params[:id])
+    @post.update_attributes(post_params)
+    @post.image_data_uri = @post.dataURI
+    if @post.update_attributes(update_post_params)
+      flash[:notice] = "記事を編集しました。"
       redirect_to post_path(@post)
     else
       render :edit
     end
   end
   def destroy
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
+
     @post.destroy
     redirect_to posts_path
   end
@@ -45,7 +50,9 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:name,:description,:image,:dataURI)
   end
-
+  def update_post_params
+    params.require(:post).permit(:image)
+  end
   def correct_user
     @post = Post.find(params[:id])
     unless current_user.id == @post.user_id

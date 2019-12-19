@@ -1,9 +1,11 @@
-h1 Posts#index
-- @posts.each do |post|
-  = link_to post_path(post)
-    | id: #{post.id}
-  p user_id: #{post.user.id}
-  p user_name: #{post.user.username}
-  p user_email: #{post.user.email}
-  p post_name: #{post.name}
-  p description: #{post.description}
+#index_post
+    .container
+        .row
+            - @posts.each do |post|
+                .col-12.col-md-6.col-lg-4.post-container.pt-3
+                    .card.card-image
+                        = link_to image_tag(post.image[:small].url),post_path(post)
+
+                        .card-text
+                            p 作者 : #{post.user.username}
+                            p name : #{post.name}
