@@ -9,7 +9,7 @@
                     - if current_user.id == @post.user_id
                         / = link_to "編集",edit_post_path(@post)
                         = button_to "消去する",post_path, method: :delete
-                    / = render "likes/like"
+                    = render "likes/like"
             .col-md-4
                 .post-container.m-5
                     = link_to user_path(@post.user)

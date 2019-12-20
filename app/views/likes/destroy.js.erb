@@ -1,0 +1,6 @@
+$("#liked").html("<%= escape_javascript(render('likes/like')) %>");
+<%
+=begin%>
+ $("#likable_<%= @post.id %>").html("<%= j(render partial: 'likes/like', locals: { post: @post }) %>"); 
+<%
+=end%>

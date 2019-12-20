@@ -26,10 +26,10 @@
                 = link_to image_tag(post.image[:small].url),post_path(post)
                 .card-text
                     p タイトル : #{post.name}
-                    p 説明 : #{post.description}
-          / div.tab-pane.fade.show#posted-articles role="tabpanel" aria-labelledby="posted-articles-tab"
-          /   - @liked_post.each do |post|
-          /     div.border-bottom
-          /       = link_to image_tag(post.image[:small].url),post_path(post)
-          /       .card-text
-          /           p コメント : #{post.content}
+                    / p 説明 : #{post.description}
+          div.tab-pane.fade.show#posted-articles role="tabpanel" aria-labelledby="posted-articles-tab"
+            - @liked_post.each do |post|
+              div.border-bottom
+                = link_to image_tag(post.image[:small].url),post_path(post)
+                .card-text
+                    p タイトル : #{post.name}
