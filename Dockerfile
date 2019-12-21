@@ -1,5 +1,6 @@
 FROM ruby:2.5.7
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN apt-get install -y vim
 # chromeの追加
 RUN apt-get update && apt-get install -y unzip && \
     CHROME_DRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE` && \
