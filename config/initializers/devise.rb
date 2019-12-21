@@ -260,7 +260,13 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-
+  if Rails.env.development?
+    config.omniauth :twitter, Rails.application.credentials.dig(:twitter, :twitter_api_key), Rails.application.credentials.dig(:twitter, :twitter_api_secret_key), callback_url: "http://localhost:3000/users/auth/twitter/callback"
+  elsif Rails.env.production?
+    # config.omniauth :twitter, Rails.application.credentials.dig(:twitter, :twitter_api_key), Rails.application.credentials.dig(:twitter, :twitter_api_secret_key), callback_url: "http://agile-atoll-07716.herokuapp.com/users/auth/twitter/callback"
+  else
+    config.omniauth :twitter, Rails.application.credentials.dig(:twitter, :twitter_api_key), Rails.application.credentials.dig(:twitter, :twitter_api_secret_key), callback_url: "http://localhost:3000/users/auth/twitter/callback"
+  end
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
