@@ -23,4 +23,4 @@
         = link_to "パスワードを忘れた方はコチラ", new_password_path(resource_name)
       .col-md
         = render 'devise/sessions/test_user'
-        = link_to "twitterでログイン", user_twitter_omniauth_authorize_path
+        / = link_to "twitterでログイン", user_twitter_omniauth_authorize_path(:twitter)
