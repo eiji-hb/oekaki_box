@@ -54,7 +54,7 @@ server "18.177.102.53",
   roles: %w{web app},
   ssh_options: {
     user: "ec2-user",
-    keys: %w(~/.ssh/aws-and-infra-ssh-key.pem),
+    keys: %w(~/.ssh/oekaki_box_rsa),
     forward_agent: true,
     # auth_methods: %w(publickey password)
     # password: "please use keys"
