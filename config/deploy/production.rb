@@ -50,12 +50,12 @@
 # The server-based syntax can be used to override options:
 # ------------------------------------
 server "52.192.33.26",
+user: "ec2-user",
+roles: %w{web app},
+ssh_options: {
   user: "ec2-user",
-  roles: %w{web app},
-  ssh_options: {
-    user: "ec2-user",
-    keys: %w(~/.ssh/oekaki_box_rsa),
-    forward_agent: true,
-    # auth_methods: %w(publickey password)
-    # password: "please use keys"
-  }
+  keys: %w(~/.ssh/aws-and-infra-ssh-key.pem),
+  forward_agent: true,
+  # auth_methods: %w(publickey password)
+  # password: "please use keys"
+}
