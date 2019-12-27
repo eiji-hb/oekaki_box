@@ -1,10 +1,11 @@
+
 # frozen_string_literal: true
-current_path = "/var/www/oekaki_box"
+
 namespace :unicorn do
-    task :environment do
-        set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
-        set :unicorn_config, "#{current_path}/config/unicorn.rb"
-    end
+  task :environment do
+      set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
+      set :unicorn_config, "#{current_path}/config/unicorn/production.rb"
+  end
 
     def start_unicorn
         within current_path do
