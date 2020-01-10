@@ -1,0 +1,15 @@
+.footer
+    .container
+        .row
+            div.footer-logo
+                p お絵かきBOX
+            div.footer-list
+                ul
+                    li.mr-4 =link_to pages_about_path
+                        | お絵かきBOXとは
+                    - if user_signed_in?
+                        li.mr-4 =link_to posts_path
+                            | TOP
+                    - else
+                        li.mr-4 =link_to root_path
+                            | TOP

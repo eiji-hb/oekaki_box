@@ -1,0 +1,12 @@
+.password_section#form
+  h2.p-2
+    | パスワード再設定
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field.form-wrapper
+      = f.label :email
+      br
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+    .actions.p-5
+      = f.submit "メールを送る",class: 'btn btn-primary'
+  / = render "devise/shared/links"

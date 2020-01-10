@@ -1,0 +1,25 @@
+# PostgreSQL. Versions 9.1 and up are supported.
+default: &default
+  adapter: postgresql
+  encoding: UTF8
+  host: db
+  username: postgres
+  password:
+  pool: 5
+
+development:
+  <<: *default
+  database: myapp_development
+
+test:
+  <<: *default
+  database: myapp_test
+
+production:
+  <<: *default
+  host: <%= Rails.application.credentials.db[:host] %>
+  encoding: utf8
+  database: oekaki_production
+  username: root
+  password: <%= Rails.application.credentials.db[:password] %>
+  port: 5432
