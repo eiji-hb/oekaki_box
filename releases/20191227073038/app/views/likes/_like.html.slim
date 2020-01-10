@@ -1,8 +1,0 @@
--if current_user.likes.find_by(post_id: @post.id)
-  #liked
-    = link_to post_like_path(@post, current_user.likes.find_by(post_id: @post.id)), method: :delete, remote: true do
-      p いいね済
-- else
-  #likable
-    = link_to post_likes_path(@post,current_user.likes.build),method: :post, remote: true do
-      p いいね

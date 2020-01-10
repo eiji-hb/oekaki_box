@@ -1,7 +1,0 @@
-.container
-  .user-index
-    - @users.each do |user|
-      .border-bottom
-        = link_to user_path(user)
-          p user_id : #{user.id}
-          p user_name : #{user.username}
