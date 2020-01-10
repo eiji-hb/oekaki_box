@@ -1,2 +1,3 @@
-=button_to current_user.active_relationships.build, params: { followed_id: @user.id }
-  | フォローする
+#follow
+  =button_to current_user.active_relationships.build, params: { followed_id: @user.id }, remote: true do
+    | フォローする

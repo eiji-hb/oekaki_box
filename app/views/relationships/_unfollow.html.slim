@@ -1,2 +1,3 @@
-=button_to current_user.active_relationships.find_by(followed_id: @user.id), method: :delete
-  | 解除する
+#unfollow
+  =button_to current_user.active_relationships.find_by(followed_id: @user.id), method: :delete, remote: true do
+    | 解除する
