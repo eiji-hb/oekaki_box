@@ -4,8 +4,8 @@
             .col-md-8
                 .post-container.m-5
                     = image_tag  @post.image[:small].url
-                    p name: #{@post.name}
-                    p description: #{@post.description}
+                    p タイトル: #{@post.name}
+                    p 説明: #{@post.description}
                     - if current_user.id == @post.user_id
                         / = link_to "編集",edit_post_path(@post)
                         = button_to "消去する",post_path, method: :delete
@@ -14,4 +14,4 @@
                 .post-container.m-5
                     = link_to user_path(@post.user)
                       #username
-                        = @post.user.username
+                        | ユーザー名:#{@post.user.username}
