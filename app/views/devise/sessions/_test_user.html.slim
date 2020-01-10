@@ -7,7 +7,4 @@
         =f.hidden_field :email ,value: "test@example.com"
         =f.hidden_field :password ,value: "testtest"
       .actions.pb-3
-        = button_to type: 'submit'
-          .btn.btn-danger
-            i.fas.fa-fighter-jet.mr-2
-            | かんたんログイン
+        = f.submit "かんたんログイン",class: 'btn btn-danger'
