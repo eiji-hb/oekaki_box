@@ -5,7 +5,7 @@
                 .post-container.m-5
                     = image_tag  @post.image[:small].url
                     p タイトル: #{@post.name}
-                    p 説明: #{@post.description}
+                    p 説明: #{simple_format(@post.description)}
                     - if current_user.id == @post.user_id
                         / = link_to "編集",edit_post_path(@post)
                         = button_to "消去する",post_path, method: :delete
