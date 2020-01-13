@@ -8,28 +8,60 @@
 
   .select
     label
-        | 色
-        input#color type="color"
+        | 色 :
+        select#color
+          option value="black"
+            | 黒色
+          option value="white"
+            | 白色
+          option value="red"
+            | 赤色
+          option value="blue"
+            | 青色
+          option value="green"
+            | 緑色
+          option value="yellow"
+            | 黄色
+          option value="purple"
+            | 紫色
+          option value="brown"
+            | 茶色
+          option value="aqua"
+            | 水色
+          option value="greenyellow"
+            | 黄緑色
+          option value="pink"
+            | ピンク色
+          option value="orange"
+            | オレンジ色
+          option value="gold"
+            | 金色
     label
         | 太さ
-        input#width type="range" step="5" min="1" max="50"
+        select#width
+          option value="15"
+            | 普通
+          option value="25"
+            | 太い
+          option value="35"
+            | 超太
 
+
+  / input.active#pencil class="active"type="button" value="鉛筆" width="35px"
+
+  / input#eraser type="button" value="消しゴム" width="35px"
 
   input#delete_canvas type="button" value="クリア"
-
-  input.active#pencil type="button" value="鉛筆" width="35px"
-
-  input#eraser type="button" value="消しゴム" width="35px"
-
+  
   = form_with model: @post, local: true do |f|
     .field
-      = f.label :name
+      = f.label :タイトル
       = f.text_field :name
     .field
       = f.hidden_field :dataURI , value: @post.cached_image_data
     .field
-      = f.label :description
-      = f.text_field :description
+      = f.label :説明
+      = f.text_area :description
     = f.submit "投稿",class: 'btn btn-primary'
 
 = javascript_include_tag "canvas.js"
