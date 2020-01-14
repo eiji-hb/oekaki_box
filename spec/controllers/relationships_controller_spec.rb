@@ -21,7 +21,8 @@ RSpec.describe RelationshipsController, type: :controller do
       @relationship = FactoryBot.create(:relationship, followed_id: @other_user.id, follower_id: @user.id)
 
       expect{
-        delete :destroy,params: {followed_id: @other_user.id,follower_id: @user.id,id:@relationship.id}, xhr: true
+        # delete :destroy,params: {followed_id: @other_user.id,follower_id: @user.id,id:@relationship.id}, xhr: true
+        delete :destroy,params: {id: @relationship.id}, xhr: true
       }.to change(Relationship, :count).by(-1)
     end
   end
